@@ -2,7 +2,6 @@ import express from "express";
 import {
   getMovies,
   searchMovies,
-  //sortMovies,
   addMovie,
   updateMovie,
   deleteMovie,
@@ -17,7 +16,6 @@ const router = express.Router();
 
 router.get("/", getMovies);
 router.get("/search", searchMovies);
-//router.get("/sorted", sortMovies);
 
 router.post("/", auth, admin, upload.single("poster"), addMovie);
 router.put("/:id", auth, admin, updateMovie);

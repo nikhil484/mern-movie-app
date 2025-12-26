@@ -58,10 +58,6 @@ export const getMovies = async (req, res) => {
     }
 
 
-    // const sortOptions = {
-    //   [sortBy]: order === "asc" ? 1 : -1,
-    // };
-
     const sortOptions = {};
 
     if (sortBy === "rating") {
@@ -100,11 +96,6 @@ export const searchMovies = async (req, res) => {
   res.json(movies);
 };
 
-// export const sortMovies = async (req, res) => {
-//   const { by } = req.query;
-//   const movies = await Movie.find().sort({ [by]: 1 });
-//   res.json(movies);
-// };
 
 export const addMovie = async (req, res) => {
   try {
@@ -142,12 +133,13 @@ export const updateMovie = async (req, res) => {
     new: true,
   });
   res.json(movie);
-};
+}
 
 export const deleteMovie = async (req, res) => {
   await Movie.findByIdAndDelete(req.params.id);
   res.json({ message: "Movie deleted" });
-};
+}
+
 
 export const rateMovie = async (req, res) => {
   try {

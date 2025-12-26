@@ -8,7 +8,6 @@ const movieSchema = new mongoose.Schema(
     releaseDate: Date,
     poster: String,
 
-    // ⭐ Ratings system
     ratings: [
       {
         user: {

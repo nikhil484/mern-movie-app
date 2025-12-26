@@ -48,7 +48,7 @@ const AdminAddMovie = () => {
       await API.post("/movies", formData);
       alert("Movie added successfully");
 
-      // Reset form
+      
       setForm({
         title: "",
         description: "",
@@ -99,17 +99,6 @@ const AdminAddMovie = () => {
                   />
                 </Grid>
 
-                {/* <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    type="number"
-                    label="Rating (0–10)"
-                    name="rating"
-                    value={form.rating}
-                    onChange={handleChange}
-                    inputProps={{ min: 0, max: 10, step: 0.1 }}
-                  />
-                </Grid> */}
 
                 <Grid item xs={12} sm={6}>
                   <TextField

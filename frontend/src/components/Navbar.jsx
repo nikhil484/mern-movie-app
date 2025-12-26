@@ -22,7 +22,7 @@ const Navbar = () => {
       }}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-        {/* 🔷 Left: Logo + Main Links */}
+       
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <Typography
             variant="h6"
@@ -91,7 +91,7 @@ const Navbar = () => {
           )}
         </Box>
 
-        {/* 🔶 Right: User Actions */}
+       
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           {user && (
             <>

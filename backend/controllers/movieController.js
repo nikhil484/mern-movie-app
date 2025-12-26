@@ -58,9 +58,17 @@ export const getMovies = async (req, res) => {
     }
 
 
-    const sortOptions = {
-      [sortBy]: order === "asc" ? 1 : -1,
-    };
+    // const sortOptions = {
+    //   [sortBy]: order === "asc" ? 1 : -1,
+    // };
+
+    const sortOptions = {};
+
+    if (sortBy === "rating") {
+      sortOptions.avgRating = order === "asc" ? 1 : -1;
+    } else {
+      sortOptions[sortBy] = order === "asc" ? 1 : -1;
+    }
 
 
     const pageNumber = Number(page);

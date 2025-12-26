@@ -1,73 +1,57 @@
 # 🎬 MERN Movie Application
 
-A full-stack **Movie Management & Rating Web App** built using the **MERN stack** with authentication, admin controls, search, sorting, pagination, and cloud deployment.
+A full-stack **Movie Management & Rating Web Application** built using the **MERN stack**, featuring authentication, admin controls, advanced filtering, pagination, and cloud deployment.
 
 ---
 
-## 🚀 Live Application URL
+## 🚀 Live Application
 
-- **LIVE SERVER (Vercel):**  
-  👉 https://mern-movie-app-liard.vercel.app
+🔗 **Frontend (Vercel)**  
+👉 https://mern-movie-app-liard.vercel.app
 
 ---
 
-## 🔐 Admin Credentials (For Reviewers)
+## 🔐 Admin Access (For Reviewers)
 
-Use the following credentials to access **Admin features**:
+Use the credentials below to explore **admin-only features** (add, edit, delete movies):
 
-Email: admin@gmail.com
-Password: admin123
-
-
-(Admin users can add, edit, and delete movies.)
+- **Email:** admin@gmail.com  
+- **Password:** admin
 
 ---
 
 ## 🧩 Tech Stack
 
-**Frontend:** React (Vite), Material UI, Axios  
-**Backend:** Node.js, Express, MongoDB Atlas, Mongoose  
-**Auth:** JWT  
-**Media:** Cloudinary  
-**Deployment:** Vercel (Frontend), Railway (Backend)
+- **Frontend:** React (Vite), Material UI, Axios  
+- **Backend:** Node.js, Express.js  
+- **Database:** MongoDB Atlas, Mongoose  
+- **Authentication:** JWT  
+- **Media Storage:** Cloudinary  
+- **Deployment:**  
+  - Frontend → Vercel  
+  - Backend → Railway  
 
 ---
 
-## ✨ Features
+## ✨ Key Features
 
-- User authentication (JWT)
+- JWT-based authentication
 - Role-based access (Admin / User)
-- Add, edit, delete movies (Admin only)
-- Upload posters via Cloudinary
-- Rate movies (one vote per user)
+- Admin movie management (Add / Edit / Delete)
+- Cloudinary poster uploads
+- One-time movie rating per user
 - Average rating & vote count
 - Live search (title & description)
-- Sort by rating, duration, release date
-- Filter by last week, month, 6 months, year
+- Sorting (rating, duration, release date)
+- Release-date filters (week, month, 6 months, year)
 - Pagination on Home page
 
 ---
 
 ## ⚙️ Local Setup (Optional)
 
-### Backend
+### Backend Setup
 ```bash
 cd backend
 npm install
 npm start
-
-API Overview
-
-POST /api/auth/login
-
-POST /api/auth/register
-
-GET /api/movies
-
-POST /api/movies (Admin)
-
-PUT /api/movies/:id (Admin)
-
-DELETE /api/movies/:id (Admin)
-
-POST /api/movies/:id/rate

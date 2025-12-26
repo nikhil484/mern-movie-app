@@ -11,10 +11,10 @@ const AdminManageMovies = () => {
       const res = await API.get("/movies", {
         params: {
           page: 1,
-          limit: 50, 
+          limit: 50,
         },
       });
-      
+
       setMovies(res.data.movies || []);
     } catch (err) {
       console.error("Failed to fetch admin movies", err);
@@ -32,21 +32,15 @@ const AdminManageMovies = () => {
         Manage Movies
       </Typography>
 
-      {/* <Grid container spacing={2} p={2}>
+
+
+      <Grid container spacing={3} p={3}>
         {movies.map((movie) => (
-          <Grid item xs={12} md={3} key={movie._id}>
+          <Grid item xs={12} sm={6} md={4} lg={3} key={movie._id}>
             <MovieCard movie={movie} refresh={fetchMovies} />
           </Grid>
         ))}
-      </Grid> */}
-
-      <Grid container spacing={3} p={3}>
-  {movies.map((movie) => (
-    <Grid item xs={12} sm={6} md={4} lg={3} key={movie._id}>
-      <MovieCard movie={movie} refresh={fetchMovies} />
-    </Grid>
-  ))}
-</Grid>
+      </Grid>
 
     </>
   );

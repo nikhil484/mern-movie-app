@@ -14,13 +14,13 @@ const App = () => (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home key="home" />} />
         <Route path="/search" element={<Search />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/admin/add" element={<AdminAddMovie />} />
         <Route path="/admin/manage" element={<AdminManageMovies />} />
-<Route path="/admin/edit/:id" element={<AdminEditMovie />} />
+        <Route path="/admin/edit/:id" element={<AdminEditMovie />} />
 
       </Routes>
     </BrowserRouter>

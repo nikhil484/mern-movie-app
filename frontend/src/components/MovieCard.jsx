@@ -125,9 +125,9 @@ const MovieCard = ({ movie, refresh }) => {
           {movie.description}
         </Typography>
 
-        <Typography sx={{ mt: 1 }}>
+        {/* <Typography sx={{ mt: 1 }}>
           ⭐ {movie.rating}
-        </Typography>
+        </Typography> */}
 
         {user?.role === "admin" && (
           <Stack direction="row" spacing={1} sx={{ mt: 2 }}>

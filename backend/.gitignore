@@ -1,0 +1,37 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+
+# Uploads / Multer temp files (if any)
+uploads/
+
+# Coverage
+coverage/
+
+# Build output (if used)
+dist/
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# ESLint cache
+.eslintcache
+
+# Nodemon
+.nodemon.json

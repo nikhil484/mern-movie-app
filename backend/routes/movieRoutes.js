@@ -2,7 +2,7 @@ import express from "express";
 import {
   getMovies,
   searchMovies,
-  sortMovies,
+  //sortMovies,
   addMovie,
   updateMovie,
   deleteMovie,

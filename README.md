@@ -4,13 +4,10 @@ A full-stack **Movie Management & Rating Web App** built using the **MERN stack*
 
 ---
 
-## 🚀 Live Application
+## 🚀 Live Application URL
 
-- **Frontend (Vercel):**  
+- **LIVE SERVER (Vercel):**  
   👉 https://mern-movie-app-liard.vercel.app
-
-- **Backend (Railway):**  
-  👉 https://sincere-forgiveness-production.up.railway.app
 
 ---
 

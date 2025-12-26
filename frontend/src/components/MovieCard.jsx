@@ -76,14 +76,17 @@ const MovieCard = ({ movie, refresh }) => {
   };
 
   return (
-    <Card
-      sx={{
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        borderRadius: 2,
-      }}
-    >
+   <Card
+  sx={{
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    borderRadius: 2,
+    maxWidth: 320,
+    mx: "auto",
+  }}
+>
+
       {/* Poster */}
       <Box
         sx={{

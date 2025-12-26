@@ -9,6 +9,12 @@ A full-stack **Movie Management & Rating Web Application** built using the **MER
 🔗 **Frontend (Vercel)**  
 👉 https://mern-movie-app-liard.vercel.app
 
+🔗 **Backend API (Railway)**  
+👉 https://sincere-forgiveness-production.up.railway.app
+
+> ℹ️ This is a REST API. Accessing `/` will return `Cannot GET /` by design.  
+> All functionality is exposed via `/api/*` endpoints.
+
 ---
 
 ## 🔐 Admin Access (For Reviewers)

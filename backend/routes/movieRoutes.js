@@ -5,7 +5,8 @@ import {
   addMovie,
   updateMovie,
   deleteMovie,
-  rateMovie
+  rateMovie,
+  getMovieById
 } from "../controllers/movieController.js";
 
 import auth from "../middleware/authMiddleware.js";
@@ -16,6 +17,8 @@ const router = express.Router();
 
 router.get("/", getMovies);
 router.get("/search", searchMovies);
+router.get("/:id", getMovieById);
+
 
 router.post("/", auth, admin, upload.single("poster"), addMovie);
 router.put("/:id", auth, admin, updateMovie);

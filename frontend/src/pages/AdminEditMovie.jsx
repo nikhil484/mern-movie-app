@@ -15,12 +15,21 @@ const AdminEditMovie = () => {
 
   const [form, setForm] = useState({});
 
+  // useEffect(() => {
+  //   API.get("/movies").then((res) => {
+  //     const movie = res.data.find((m) => m._id === id);
+  //     setForm(movie);
+  //   });
+  // }, [id]);
   useEffect(() => {
-    API.get("/movies").then((res) => {
-      const movie = res.data.find((m) => m._id === id);
-      setForm(movie);
-    });
-  }, [id]);
+  const fetchMovie = async () => {
+    const res = await API.get(`/movies/${id}`);
+    setForm(res.data);
+  };
+
+  fetchMovie();
+}, [id]);
+
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -55,14 +64,6 @@ const AdminEditMovie = () => {
             onChange={handleChange}
           />
 
-          <TextField
-            fullWidth
-            label="Rating"
-            name="rating"
-            value={form?.rating || ""}
-            margin="normal"
-            onChange={handleChange}
-          />
 
           <Button type="submit" variant="contained" sx={{ mt: 2 }}>
             Update Movie

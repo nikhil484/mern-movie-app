@@ -15,7 +15,7 @@ const AdminAddMovie = () => {
   const [form, setForm] = useState({
     title: "",
     description: "",
-    rating: "",
+   // rating: "",
     releaseDate: "",
     duration: "",
   });
@@ -99,7 +99,7 @@ const AdminAddMovie = () => {
                   />
                 </Grid>
 
-                <Grid item xs={12} sm={6}>
+                {/* <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
                     type="number"
@@ -109,7 +109,7 @@ const AdminAddMovie = () => {
                     onChange={handleChange}
                     inputProps={{ min: 0, max: 10, step: 0.1 }}
                   />
-                </Grid>
+                </Grid> */}
 
                 <Grid item xs={12} sm={6}>
                   <TextField

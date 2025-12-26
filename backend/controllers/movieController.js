@@ -1,6 +1,89 @@
 import Movie from "../models/Movie.js";
 import cloudinary from "../config/cloudinary.js";
 
+// export const getMovies = async (req, res) => {
+//   try {
+//     const {
+//       q,
+//       sortBy = "avgRating",
+//       order = "desc",
+//       releaseRange = "all",
+//       page = 1,
+//       limit = 10,
+//     } = req.query;
+
+//     const filter = {};
+
+
+//     if (q) {
+//       filter.$or = [
+//         { title: { $regex: q, $options: "i" } },
+//         { description: { $regex: q, $options: "i" } },
+//       ];
+//     }
+
+
+//     if (releaseRange && releaseRange !== "all") {
+//       const now = new Date();
+//       let fromDate = null;
+
+//       switch (releaseRange) {
+//         case "week":
+//           fromDate = new Date();
+//           fromDate.setDate(now.getDate() - 7);
+//           break;
+
+//         case "month":
+//           fromDate = new Date();
+//           fromDate.setMonth(now.getMonth() - 1);
+//           break;
+
+//         case "sixMonths":
+//           fromDate = new Date();
+//           fromDate.setMonth(now.getMonth() - 6);
+//           break;
+
+//         case "year":
+//           fromDate = new Date();
+//           fromDate.setFullYear(now.getFullYear() - 1);
+//           break;
+
+//         default:
+//           break;
+//       }
+
+//       if (fromDate) {
+//         filter.releaseDate = { $gte: fromDate };
+//       }
+//     }
+
+
+//     const sortOptions = {
+//       [sortBy]: order === "asc" ? 1 : -1,
+//     };
+
+
+//     const pageNumber = Number(page);
+//     const pageSize = Number(limit);
+//     const skip = (pageNumber - 1) * pageSize;
+
+//     const totalMovies = await Movie.countDocuments(filter);
+
+//     const movies = await Movie.find(filter)
+//       .sort(sortOptions)
+//       .skip(skip)
+//       .limit(pageSize);
+
+//     res.json({
+//       movies,
+//       currentPage: pageNumber,
+//       totalPages: Math.ceil(totalMovies / pageSize),
+//       totalMovies,
+//     });
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
 export const getMovies = async (req, res) => {
   try {
     const {
@@ -14,7 +97,7 @@ export const getMovies = async (req, res) => {
 
     const filter = {};
 
-
+    // 🔍 Search
     if (q) {
       filter.$or = [
         { title: { $regex: q, $options: "i" } },
@@ -22,33 +105,23 @@ export const getMovies = async (req, res) => {
       ];
     }
 
-
+    // 📅 Release date filter
     if (releaseRange && releaseRange !== "all") {
       const now = new Date();
       let fromDate = null;
 
       switch (releaseRange) {
         case "week":
-          fromDate = new Date();
-          fromDate.setDate(now.getDate() - 7);
+          fromDate = new Date(now.setDate(now.getDate() - 7));
           break;
-
         case "month":
-          fromDate = new Date();
-          fromDate.setMonth(now.getMonth() - 1);
+          fromDate = new Date(now.setMonth(now.getMonth() - 1));
           break;
-
         case "sixMonths":
-          fromDate = new Date();
-          fromDate.setMonth(now.getMonth() - 6);
+          fromDate = new Date(now.setMonth(now.getMonth() - 6));
           break;
-
         case "year":
-          fromDate = new Date();
-          fromDate.setFullYear(now.getFullYear() - 1);
-          break;
-
-        default:
+          fromDate = new Date(now.setFullYear(now.getFullYear() - 1));
           break;
       }
 
@@ -57,11 +130,24 @@ export const getMovies = async (req, res) => {
       }
     }
 
-
-    const sortOptions = {
-      [sortBy]: order === "asc" ? 1 : -1,
-    };
-
+    // 🔃 SORTING (FIXED)
+    const sortOptions = {};
+    switch (sortBy) {
+      case "rating":
+        sortOptions.avgRating = order === "asc" ? 1 : -1;
+        break;
+      case "duration":
+        sortOptions.duration = order === "asc" ? 1 : -1;
+        break;
+      case "title":
+        sortOptions.title = order === "asc" ? 1 : -1;
+        break;
+      case "releaseDate":
+        sortOptions.releaseDate = order === "asc" ? 1 : -1;
+        break;
+      default:
+        sortOptions.avgRating = -1;
+    }
 
     const pageNumber = Number(page);
     const pageSize = Number(limit);
@@ -92,11 +178,11 @@ export const searchMovies = async (req, res) => {
   res.json(movies);
 };
 
-export const sortMovies = async (req, res) => {
-  const { by } = req.query;
-  const movies = await Movie.find().sort({ [by]: 1 });
-  res.json(movies);
-};
+// export const sortMovies = async (req, res) => {
+//   const { by } = req.query;
+//   const movies = await Movie.find().sort({ [by]: 1 });
+//   res.json(movies);
+// };
 
 export const addMovie = async (req, res) => {
   try {
